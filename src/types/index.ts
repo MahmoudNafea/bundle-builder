@@ -9,8 +9,9 @@ export interface Product {
   name: string;
   description: string;
   image: string;
-  badge?: string;         
-  comparePrice?: number;  
+  badge?: string | null;         
+  comparePrice?: number | null;  
+  learnMoreUrl: string; 
   price: number;
   variants: Variant[]; 
   isFree?: boolean;      
