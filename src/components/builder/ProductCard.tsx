@@ -1,3 +1,5 @@
+import './ProductCard.css';
+
 import { Product } from '../../types';
 import { useBundleContext } from '../../context/BundleContext';
 import { VariantSelector } from './VariantSelector';

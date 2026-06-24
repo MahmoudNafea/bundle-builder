@@ -23,6 +23,7 @@ export interface Step {
   label: string;
   stepNumber: number;
   products: Product[];
+  nextLabel: string | null;
 }
 
 export interface Selections {
