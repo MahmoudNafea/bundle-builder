@@ -22,8 +22,24 @@ const BundleContext = createContext<BundleContextValue | null>(null);
 
 const STORAGE_KEY = 'bundle-system';
 
+const getInitialSelections = (): Selections => {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) return JSON.parse(saved) as Selections;
+  // Default selections matching Figma
+  return {
+    'wyze-cam-v4-white': 1,
+    'wyze-cam-pan-v3-white': 2,
+    'wyze-sense-motion-sensor': 2,
+    'wyze-sense-hub': 1,
+    'wyze-microsd-card': 2,
+    'cam-unlimited': 1,
+  };
+};
+
 export function BundleProvider({ children }: { children: ReactNode }) {
-  const [selections, setSelections] = useState<Selections>({});
+  // const [selections, setSelections] = useState<Selections>({});
+    const [selections, setSelections] = useState<Selections>(getInitialSelections);
+
   const [activeStep, setActiveStep] = useState<number>(0);
   const [activeVariants, setActiveVariants] = useState<ActiveVariants>({});
 
