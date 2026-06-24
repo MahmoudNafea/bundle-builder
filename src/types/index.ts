@@ -12,7 +12,9 @@ export interface Product {
   badge?: string;         
   comparePrice?: number;  
   price: number;
-  variants: Variant[];     
+  variants: Variant[]; 
+  isFree?: boolean;      
+  priceLabel?: string;     
 }
 
 export interface Step {
