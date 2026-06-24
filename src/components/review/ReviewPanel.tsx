@@ -131,10 +131,26 @@ export function ReviewPanel({ steps }: ReviewPanelProps) {
           ))}
 
           {/* Shipping */}
-          <div className="review-shipping">
+          {/* <div className="review-shipping">
             <span>Fast Shipping</span>
             <span className="review-shipping__free">FREE</span>
-          </div>
+          </div> */}
+          {/* Shipping */}
+<div className="review-shipping">
+  <div className="review-shipping__left">
+    <span className="review-shipping__icon">🚚</span>
+    <span>Fast Shipping</span>
+  </div>
+  <div className="review-shipping__pricing">
+    <span className="review-shipping__compare">$5.99</span>
+    <span className="review-shipping__free">FREE</span>
+  </div>
+</div>
+
+          {/* Financing pill */}
+<div className="review-financing">
+  <span className="review-financing__pill">as low as $19.19/mo</span>
+</div>
 
           {/* Total */}
           <div className="review-total">

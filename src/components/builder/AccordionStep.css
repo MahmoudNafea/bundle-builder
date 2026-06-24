@@ -1,16 +1,24 @@
 .accordion-step {
-  background: white;
+  /* background: white;
+  border: 1.5px solid #E5E7EB;
+  border-radius: 12px;
+  overflow: hidden; */
+
+  background: #FFFFFF;
   border: 1.5px solid #E5E7EB;
   border-radius: 12px;
   overflow: hidden;
 }
 
 .accordion-step--open {
-  border-color: var(--color-step-border);
+  /* border-color: var(--color-step-border); */
+    /* border-color: #6366F1; */
+  border-color: #6366F1;
+  background: #EDF4FF;
 }
 
 .accordion-step__header {
-  width: 100%;
+  /* width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18,11 +26,26 @@
   background: white;
   cursor: pointer;
   text-align: left;
+  gap: 16px; */
+    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  /* background: #EDF4FF;      ← same as container */
+    background: transparent;   /* ← inherit from parent */
+
+  cursor: pointer;
+  text-align: left;
   gap: 16px;
 }
 
 .accordion-step__header:hover {
-  background: #FAFAFA;
+  /* background: #FAFAFA; */
+    /* background: #E0EEFF;      ← slightly darker on hover */
+      background: rgba(0, 0, 0, 0.03);
+
+
 }
 
 .accordion-step__header-left {
@@ -46,8 +69,12 @@
 }
 
 .accordion-step__icon {
-  font-size: 20px;
-  line-height: 1;
+  /* font-size: 20px;
+  line-height: 1; */
+    display: flex;
+  align-items: center;
+  color: var(--color-text-primary);
+  flex-shrink: 0;
 }
 
 .accordion-step__title {
@@ -76,12 +103,17 @@
 
 /* Body */
 .accordion-step__body {
-  padding: 16px;
+  /* padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  background: #EDF4FF;    /* ← light blue background from Figma */
-  border-top: 1px solid #E5E7EB;
+  background: #EDF4FF;    
+  border-top: 1px solid #E5E7EB; */
+   padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #EDF4FF; 
 }
 
 .accordion-step__products {
