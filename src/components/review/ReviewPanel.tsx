@@ -7,6 +7,13 @@ interface ReviewPanelProps {
   steps: Step[];
 }
 
+const categoryLabels: Record<string, string> = {
+  cameras: 'CAMERAS',
+  plan: 'PLAN',
+  sensors: 'SENSORS',
+  protection: 'ACCESSORIES',
+};
+
 export function ReviewPanel({ steps }: ReviewPanelProps) {
   const { selections, setQty, saveSystem } = useBundleContext();
 
@@ -81,7 +88,7 @@ export function ReviewPanel({ steps }: ReviewPanelProps) {
           {/* Line items grouped by category */}
           {grouped.map(({ step, items }) => (
             <div key={step.id} className="review-group">
-              <h3 className="review-group__label">{step.label}</h3>
+              <h3 className="review-group__label">{categoryLabels[step.id]}</h3>
               {items.map(item => (
                 <div key={item.key} className="review-item">
                   <img

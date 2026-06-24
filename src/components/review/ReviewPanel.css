@@ -56,6 +56,8 @@
   object-fit: contain;
   border-radius: var(--radius-sm);
   background: white;
+  border: 1px solid var(--color-card-border);
+  padding: 2px;
 }
 
 .review-item__name {
@@ -68,6 +70,9 @@
 .review-item__stepper .stepper {
   transform: scale(0.85);
   transform-origin: left center;
+
+    zoom: 0.8;
+
 }
 
 .review-item__pricing {
