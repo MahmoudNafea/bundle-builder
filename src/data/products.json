@@ -1,0 +1,24 @@
+{
+  "steps": [
+    {
+      "id": "cameras",
+      "label": "Choose your cameras",
+      "stepNumber": 1,
+      "products": [
+        {
+          "id": "cam-indoor",
+          "name": "Indoor Camera Pro",
+          "description": "1080p, night vision, two-way audio",
+          "image": "/images/cam-indoor.png",
+          "badge": "Save 22%",
+          "comparePrice": 129,
+          "price": 99,
+          "variants": [
+            { "id": "cam-indoor-white", "label": "White", "color": "#F5F5F5" },
+            { "id": "cam-indoor-black", "label": "Black", "color": "#2C2C2C" }
+          ]
+        }
+      ]
+    }
+  ]
+}
