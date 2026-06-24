@@ -1,29 +1,28 @@
 .accordion-step {
-  background: var(--color-step-bg);
-  border: 1.5px solid var(--color-step-border);
-  border-radius: var(--radius-lg);
+  background: white;
+  border: 1.5px solid #E5E7EB;
+  border-radius: 12px;
   overflow: hidden;
 }
 
 .accordion-step--open {
-  border-color: var(--color-primary);
+  border-color: var(--color-step-border);
 }
 
-/* Header */
 .accordion-step__header {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-4) var(--space-5);
-  background: var(--color-step-header-bg);
+  padding: 16px 20px;
+  background: white;
   cursor: pointer;
   text-align: left;
-  gap: var(--space-4);
+  gap: 16px;
 }
 
 .accordion-step__header:hover {
-  background: #F3F4F6;
+  background: #FAFAFA;
 }
 
 .accordion-step__header-left {
@@ -33,15 +32,26 @@
 }
 
 .accordion-step__step-label {
-  font-size: var(--font-size-xs);
+  font-size: 11px;
   font-weight: 600;
   color: var(--color-text-secondary);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
+.accordion-step__title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.accordion-step__icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
 .accordion-step__title {
-  font-size: var(--font-size-lg);
+  font-size: 20px;
   font-weight: 600;
   color: var(--color-text-primary);
 }
@@ -49,17 +59,14 @@
 .accordion-step__header-right {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: 8px;
   flex-shrink: 0;
 }
 
 .accordion-step__count {
-  font-size: var(--font-size-sm);
+  font-size: 12px;
   font-weight: 500;
   color: var(--color-primary);
-  background: #EFF6FF;
-  padding: 2px var(--space-2);
-  border-radius: var(--radius-sm);
 }
 
 .accordion-step__chevron {
@@ -69,38 +76,32 @@
 
 /* Body */
 .accordion-step__body {
-  padding: var(--space-5);
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
-  border-top: 1px solid var(--color-step-border);
+  gap: 16px;
+  background: #EDF4FF;    /* ← light blue background from Figma */
+  border-top: 1px solid #E5E7EB;
 }
 
-/* Products grid */
-/* .accordion-step__products {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: var(--space-4);
-} */
 .accordion-step__products {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: var(--space-4);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
-/* Next button */
 .accordion-step__next {
   align-self: center;
   background: white;
   color: var(--color-primary);
   border: 2px solid var(--color-primary);
-  border-radius: var(--radius-md);
-  padding: var(--space-3) var(--space-6);
-  font-size: var(--font-size-base);
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
   font-weight: 600;
   transition: background 0.15s, color 0.15s;
   width: 100%;
-  max-width: 280px;
+  max-width: 300px;
 }
 
 .accordion-step__next:hover {

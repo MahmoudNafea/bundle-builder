@@ -1,19 +1,30 @@
 
 :root {
   /* Brand colors */
-  --color-primary: #1A56DB;
-  --color-primary-hover: #1648C4;
+  /* --color-primary: #1A56DB; */
+  /* --color-primary-hover: #1648C4; */
+--color-primary: #4F46E5;
+--color-primary-hover: #4338CA;
+
 
   /* Card */
-  --color-card-bg: #FFFFFF;
+  /* --color-card-bg: #FFFFFF;
   --color-card-border: #E5E7EB;
   --color-card-border-selected: #1A56DB;
   --color-card-bg-selected: #EFF6FF;
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08); */
+--color-card-bg: #FFFFFF;
+--color-card-border: #E5E7EB;
+--color-card-border-selected: #6366F1;
+--color-card-bg-selected: #EEF2FF;
+--shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06);
+
 
   /* Badge */
-  --color-badge-bg: #1A56DB;
-  --color-badge-text: #FFFFFF;
+  /* --color-badge-bg: #1A56DB;
+  --color-badge-text: #FFFFFF; */
+  --color-badge-bg: #4F46E5;
+--color-badge-text: #FFFFFF;
 
   /* Text */
   --color-text-primary: #111827;
@@ -27,6 +38,11 @@
   --color-stepper-border: #D1D5DB;
   --color-stepper-bg: #F9FAFB;
   --color-stepper-disabled: #E5E7EB;
+
+/* Step container */
+  --color-step-bg: #FFFFFF;
+--color-step-border: #6366F1;
+--color-step-container-bg: #EDF4FF;
 
   /* Variant chip */
   --color-chip-border: #D1D5DB;
