@@ -12,11 +12,11 @@ interface AccordionStepProps {
   stepIndex: number;
 }
 
-const stepIcons: Record<string, string> = {
-  cameras: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>`,
-  plan: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
-  sensors: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M6.3 6.3a8 8 0 000 11.4M17.7 6.3a8 8 0 010 11.4"/></svg>`,
-  protection: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>`,
+const stepIconPaths: Record<string, string> = {
+  cameras: '/icons/icon-camera.svg',
+  plan: '/icons/icon-shield.svg',
+  sensors: '/icons/icon-sensor.svg',
+  protection: '/icons/icon-lock.svg',
 };
 
 export function AccordionStep({ step, stepIndex }: AccordionStepProps) {
@@ -51,10 +51,18 @@ return (
           STEP {step.stepNumber} OF 4
         </span>
         <div className="accordion-step__title-row">
-          <span
+          {/* <span
             className="accordion-step__icon"
             dangerouslySetInnerHTML={{ __html: stepIcons[step.id] }}
-          />
+          /> */}
+          <span className="accordion-step__icon">
+  <img
+    src={stepIconPaths[step.id]}
+    alt={step.label}
+    width={26}
+    height={26}
+  />
+</span>
           <span className="accordion-step__title">{step.label}</span>
         </div>
       </div>
