@@ -79,17 +79,22 @@
 
 /* Variants — right column row 2 */
 .variant-selector {
-  grid-column: 2;
+  /* grid-column: 2;
   grid-row: 2;
   display: flex;
   gap: 6px;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 6px 0; */
+    display: flex;
+  gap: 4px;
   flex-wrap: nowrap;
   align-items: center;
   padding: 6px 0;
 }
 
 .variant-chip {
-  display: flex;
+  /* display: flex;
   align-items: center;
   gap: 4px;
   padding: 3px 8px;
@@ -100,26 +105,58 @@
   background: white;
   transition: border-color 0.1s;
   white-space: nowrap;
+  cursor: pointer; */
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 65px;
+  height: 26px;
+  padding: 1px 3px;
+  border: 0.5px solid #D1D5DB;
+  border-radius: 2px;
+  font-size: 11px;
+  color: var(--color-text-primary);
+  background: white;
+  transition: border-color 0.1s;
+  white-space: nowrap;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .variant-chip__image {
-  width: 22px;
+  /* width: 22px;
   height: 22px;
   object-fit: contain;
-  border-radius: 5px;
+  border-radius: 5px; */
+    width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .variant-chip--active {
-  border-color: var(--color-card-border-selected);
+  /* border-color: var(--color-card-border-selected); */
+    border-color: #6366F1;
+  border-width: 1.5px;
 }
 
 .variant-chip__swatch {
-  width: 10px;
+  /* width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  flex-shrink: 0; */
+    width: 10px;
   height: 10px;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.15);
   flex-shrink: 0;
+}
+
+.variant-chip__label {
+  font-size: 11px;
+  font-weight: 400;
 }
 
 /* Footer — right column row 3 */

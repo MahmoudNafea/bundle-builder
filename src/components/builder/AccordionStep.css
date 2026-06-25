@@ -27,17 +27,33 @@
   cursor: pointer;
   text-align: left;
   gap: 16px; */
-    width: 100%;
+
+
+    /* width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
-  /* background: #EDF4FF;      ← same as container */
-    background: transparent;   /* ← inherit from parent */
+    background: transparent;  
 
   cursor: pointer;
   text-align: left;
+  gap: 16px; */
+
+    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px 16px;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
   gap: 16px;
+  border-top: 1px solid #E5E7EB;  
+}
+
+.accordion-step:first-child .accordion-step__header {
+  border-top: none;
 }
 
 .accordion-step__header:hover {
@@ -55,11 +71,20 @@
 }
 
 .accordion-step__step-label {
-  font-size: 11px;
+  /* font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase; */
+   font-size: 11px;
   font-weight: 600;
   color: var(--color-text-secondary);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #E5E7EB;   /* ← line below step label */
+  width: 100%;
+  display: block;
 }
 
 .accordion-step__title-row {
@@ -117,9 +142,17 @@
 }
 
 .accordion-step__products {
-  display: grid;
+  /* display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px; */
+    display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
+  justify-items: stretch;
+}
+
+.accordion-step__products > *:last-child:nth-child(odd) {
+  grid-column: 1;        /* ← force it to left column */
 }
 
 .accordion-step__next {
