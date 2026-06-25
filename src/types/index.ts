@@ -2,6 +2,7 @@ export interface Variant {
   id: string;
   label: string;
   color: string;
+  image?: string;
 }
 
 export interface Product {

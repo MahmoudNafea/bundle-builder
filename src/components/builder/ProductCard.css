@@ -103,6 +103,13 @@
   cursor: pointer;
 }
 
+.variant-chip__image {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
 .variant-chip--active {
   border-color: var(--color-card-border-selected);
 }

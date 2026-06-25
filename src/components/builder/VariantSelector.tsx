@@ -20,19 +20,26 @@ export function VariantSelector({ productId, variants }: VariantSelectorProps) {
   return (
     <div className="variant-selector">
       {variants.map(variant => (
-        <button
-          key={variant.id}
-          className={`variant-chip ${activeVariantId === variant.id ? 'variant-chip--active' : ''}`}
-          onClick={() => handleSelect(variant.id)}
-          aria-label={variant.label}
-          title={variant.label}
-        >
-          <span
-            className="variant-chip__swatch"
-            style={{ backgroundColor: variant.color }}
-          />
-          <span className="variant-chip__label">{variant.label}</span>
-        </button>
+       <button
+  key={variant.id}
+  className={`variant-chip ${activeVariantId === variant.id ? 'variant-chip--active' : ''}`}
+  onClick={() => handleSelect(variant.id)}
+  title={variant.label}
+>
+  {variant.image ? (
+    <img
+      src={variant.image}
+      alt={variant.label}
+      className="variant-chip__image"
+    />
+  ) : (
+    <span
+      className="variant-chip__swatch"
+      style={{ backgroundColor: variant.color }}
+    />
+  )}
+  <span className="variant-chip__label">{variant.label}</span>
+</button>
       ))}
     </div>
   );
