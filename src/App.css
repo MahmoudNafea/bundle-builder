@@ -1,4 +1,4 @@
-.app-layout {
+/* .app-layout {
   display: grid;
   grid-template-columns: 1fr 420px;
   gap: 32px;
@@ -11,5 +11,31 @@
 @media (max-width: 900px) {
   .app-layout {
     grid-template-columns: 1fr;
+  }
+} */
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 32px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  align-items: start;
+}
+
+/* Frame 1736 — medium desktop */
+@media (max-width: 1100px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+    max-width: 900px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .app-layout {
+    padding: 16px;
+    gap: 16px;
   }
 }

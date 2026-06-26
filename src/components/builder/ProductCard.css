@@ -242,3 +242,34 @@
   font-weight: 700;
   color: #059669;
 }
+
+@media (max-width: 600px) {
+  .product-card {
+    grid-template-columns: 80px 1fr;
+    padding: 12px;
+    min-height: 130px;
+  }
+
+  .product-card__image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .product-card__name {
+    font-size: 13px;
+  }
+
+  .product-card__description {
+    font-size: 11px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .variant-chip {
+    width: 52px;
+    height: 22px;
+    font-size: 10px;
+  }
+}
