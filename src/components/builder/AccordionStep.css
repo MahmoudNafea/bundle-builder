@@ -1,9 +1,4 @@
 .accordion-step {
-  /* background: white;
-  border: 1.5px solid #E5E7EB;
-  border-radius: 12px;
-  overflow: hidden; */
-
   background: #FFFFFF;
   border: 1.5px solid #E5E7EB;
   border-radius: 12px;
@@ -11,36 +6,12 @@
 }
 
 .accordion-step--open {
-  /* border-color: var(--color-step-border); */
-    /* border-color: #6366F1; */
   border-color: #6366F1;
   background: #EDF4FF;
 }
 
 .accordion-step__header {
-  /* width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 20px;
-  background: white;
-  cursor: pointer;
-  text-align: left;
-  gap: 16px; */
-
-
-    /* width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 20px;
-    background: transparent;  
-
-  cursor: pointer;
-  text-align: left;
-  gap: 16px; */
-
-    width: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -49,7 +20,7 @@
   cursor: pointer;
   text-align: left;
   gap: 16px;
-  border-top: 1px solid #E5E7EB;  
+  border-top: 1px solid #E5E7EB;
 }
 
 .accordion-step:first-child .accordion-step__header {
@@ -57,11 +28,7 @@
 }
 
 .accordion-step__header:hover {
-  /* background: #FAFAFA; */
-    /* background: #E0EEFF;      ← slightly darker on hover */
-      background: rgba(0, 0, 0, 0.03);
-
-
+  background: rgba(0, 0, 0, 0.03);
 }
 
 .accordion-step__header-left {
@@ -71,18 +38,13 @@
 }
 
 .accordion-step__step-label {
-  /* font-size: 11px;
-  font-weight: 600;
-  color: var(--color-text-secondary);
-  letter-spacing: 0.08em;
-  text-transform: uppercase; */
-   font-size: 11px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--color-text-secondary);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding-bottom: 8px;
-  border-bottom: 1px solid #E5E7EB;   /* ← line below step label */
+  border-bottom: 1px solid #E5E7EB;
   width: 100%;
   display: block;
 }
@@ -94,9 +56,7 @@
 }
 
 .accordion-step__icon {
-  /* font-size: 20px;
-  line-height: 1; */
-    display: flex;
+  display: flex;
   align-items: center;
   color: var(--color-text-primary);
   flex-shrink: 0;
@@ -126,33 +86,19 @@
   color: var(--color-text-secondary);
 }
 
-/* Body */
 .accordion-step__body {
-  /* padding: 16px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  background: #EDF4FF;    
-  border-top: 1px solid #E5E7EB; */
-   padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  background: #EDF4FF; 
+  background: #EDF4FF;
 }
 
+/* Default — 2 column horizontal cards (Frame 1735) */
 .accordion-step__products {
-  /* display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px; */
-    display: grid;
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
-  justify-items: stretch;
-}
-
-.accordion-step__products > *:last-child:nth-child(odd) {
-  grid-column: 1;        /* ← force it to left column */
 }
 
 .accordion-step__next {
@@ -174,15 +120,26 @@
   color: white;
 }
 
+/* Frame 1736 — 5 column vertical cards */
 @media (max-width: 1100px) {
   .accordion-step__products {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    align-items: stretch;
   }
 }
 
+/* Tablet — 3 columns */
+@media (max-width: 800px) {
+  .accordion-step__products {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile — 2 columns */
 @media (max-width: 600px) {
   .accordion-step__products {
-    grid-template-columns: 1fr;   /* ← single column on mobile */
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .accordion-step__header {
