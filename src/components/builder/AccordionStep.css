@@ -121,11 +121,18 @@
 }
 
 /* Frame 1736 — 5 column vertical cards */
-@media (max-width: 1100px) {
+@media (min-width: 601px) and (max-width: 1100px) {
   .accordion-step__products {
     grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
+    gap: 8px;
     align-items: stretch;
+    overflow-x: auto; 
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1100px) {
+  .accordion-step__products {
+    overflow-x: visible;
   }
 }
 

@@ -213,7 +213,8 @@
 }
 
 /* ============ VERTICAL CARD — Frame 1736 (<1100px) ============ */
-@media (max-width: 1100px) {
+/* Frame 1736 — vertical cards, only between 601px and 1100px */
+@media (min-width: 601px) and (max-width: 1100px) {
   .product-card {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto 1fr auto;
@@ -258,7 +259,6 @@
     margin-top: 8px;
   }
 
-  /* Smaller variant chips to fit narrow columns */
   .variant-chip {
     width: 52px;
     height: 24px;
