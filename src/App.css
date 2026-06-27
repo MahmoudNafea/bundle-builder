@@ -16,26 +16,26 @@
 
 .app-layout {
   display: grid;
-  grid-template-columns: 1fr 380px;
+  grid-template-columns: 1fr 400px;
   gap: 32px;
-  max-width: 1280px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 32px 24px;
   align-items: start;
 }
 
-/* Frame 1736 — medium desktop */
-@media (max-width: 1100px) {
+/* Frame 1736 — single column, review panel below */
+@media (max-width: 1200px) {
   .app-layout {
     grid-template-columns: 1fr;
-    max-width: 900px;
+    padding: 24px;
+    gap: 16px;
   }
 }
 
-/* Mobile */
 @media (max-width: 600px) {
   .app-layout {
-    padding: 16px;
-    gap: 16px;
+    padding: 12px;
+    gap: 12px;
   }
 }
