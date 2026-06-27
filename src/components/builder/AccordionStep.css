@@ -149,7 +149,7 @@
 /* Mobile */
 @media (max-width: 480px) {
   .accordion-step__products {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;    /* ← single column */
     gap: 8px;
   }
 
