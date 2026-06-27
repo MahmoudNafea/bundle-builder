@@ -169,12 +169,19 @@
 /* Mobile */
 @media (max-width: 480px) {
   .accordion-step__products {
-    grid-template-columns: 1fr;    /* ← single column */
+    grid-template-columns: 1fr;
     gap: 8px;
+    justify-items: stretch;
+  }
+
+  /* Reset centering rule on mobile */
+  .accordion-step__products > *:last-child:nth-child(odd) {
+    grid-column: auto;
+    max-width: 100%;
   }
 
   .accordion-step__header {
-    padding: 12px 16px;
+    padding: 0 12px;
   }
 
   .accordion-step__title {
