@@ -1,4 +1,6 @@
 @import './styles/tokens.css';
+@import url('https://fonts.cdnfonts.com/css/gilroy-free?styles=20876,20878');
+@import url('https://fonts.cdnfonts.com/css/tt-norms-pro');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -7,7 +9,8 @@
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: 'Gilroy', sans-serif;
+  /* font-family: var(--font-sans); */
   font-size: var(--font-size-base);
   color: var(--color-text-primary);
   background: #F3F4F6;
