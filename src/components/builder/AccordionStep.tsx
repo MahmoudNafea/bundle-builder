@@ -37,39 +37,6 @@ export function AccordionStep({ step, stepIndex }: AccordionStepProps) {
 
   return (
     <div className={`accordion-step ${isOpen ? "accordion-step--open" : ""}`}>
-      {/* Header */}
-      {/* <button
-        className="accordion-step__header"
-        onClick={() => setActiveStep(isOpen ? -1 : stepIndex)}
-        aria-expanded={isOpen}
-      >
-        <div className="accordion-step__header-left">
-          <span className="accordion-step__step-label">
-            STEP {step.stepNumber} OF 4
-          </span>
-          <div className="accordion-step__title-row">
-           
-            <span className="accordion-step__icon">
-              <img
-                src={stepIconPaths[step.id]}
-                alt={step.label}
-                width={26}
-                height={26}
-              />
-            </span>
-            <span className="accordion-step__title">{step.label}</span>
-          </div>
-        </div>
-
-        <div className="accordion-step__header-right">
-          {selectedCount > 0 && (
-            <span className="accordion-step__count">
-              {selectedCount} selected
-            </span>
-          )}
-          <span className="accordion-step__chevron">{isOpen ? "▲" : "▼"}</span>
-        </div>
-      </button> */}
       <button
   className="accordion-step__header"
   onClick={() => setActiveStep(isOpen ? -1 : stepIndex)}
