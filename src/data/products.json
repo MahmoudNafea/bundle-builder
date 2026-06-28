@@ -134,7 +134,7 @@
           "name": "Cam Unlimited",
           "description": "Unlimited cameras, 14-day cloud storage, and more.",
           "learnMoreUrl": "#",
-          "image": "/images/cam-unlimited.png",
+          "image": "/icons/icon-cam-unlimited.svg",
           "badge": null,
           "comparePrice": 12.99,
           "price": 9.99,
