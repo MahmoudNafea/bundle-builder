@@ -1,46 +1,65 @@
-# Getting Started with Create React App
+# Bundle Builder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Running it
 
-## Available Scripts
+```bash
+npm install
+npm start
+```
 
-In the project directory, you can run:
+Requires Node 16+. No backend — everything runs locally.
 
-### `npm start`
+## Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React 18 + TypeScript
+- Plain CSS with custom properties — no Tailwind, no CSS-in-JS
+- Context API for state (no Redux — the state shape is simple enough that a reducer would've been overhead)
+- No backend — data comes from a local `products.json` file
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## Project structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+src/
+  components/
+    builder/        # AccordionStep, ProductCard, VariantSelector, QuantityStepper
+    review/         # ReviewPanel, ReviewLineItem, PriceSummary
+  context/
+    BundleContext.tsx
+  hooks/
+    useSaveSystem.ts
+  data/
+    products.json
+  styles/
+    tokens.css
+  types/
+    index.ts
+```
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Design decisions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Context over Redux.** The app has one piece of shared state: a flat map of `variantId → quantity`. No async, no derived server state. Context with a handful of helpers covers it without the boilerplate.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Variant-keyed selections.** Instead of nesting quantities under products, selections are stored as `{ [variantId]: number }`. This makes the review panel trivial — filter by qty > 0, group by step. It also means variant switching is free: you're just changing which key the stepper reads, not moving data around.
 
-### `npm run eject`
+**CSS custom properties for the design system.** The Figma uses Gilroy and TT Norms Pro with a consistent color palette. Extracting those into tokens in one file meant I could match the design closely without scattering hex values everywhere. Media query breakpoints follow the two Figma frames — 1200px switches from the sidebar layout to the full-width layout with the review panel below.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**products.json as the single source of truth.** All product data, pricing, variant options, and step structure live in one file. Nothing is hardcoded in components. The initial state seed in BundleContext references variant IDs from that file, so if the data changes, the defaults stay in sync.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## What I didn't finish
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- The Figma uses Gilroy and TT Norms Pro. Both are paid fonts — I'm loading them via cdnfonts which covers most weights but may not be production-reliable. In a real project I'd either license the fonts or find free equivalents.
+- No animations on accordion open/close. The expand/collapse is instant. Adding a CSS height transition here would've been straightforward but I prioritized getting the layout and logic right.
+- The "Learn More" links go nowhere. They'd need real product URLs.
+- No error boundary around the context. If localStorage returns malformed JSON on restore, it'll throw. Worth adding a try/catch in `useSaveSystem`.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Fonts
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Gilroy (cdnfonts) and TT Norms Pro (cdnfonts) are loaded via CDN import. If either fails to load, the browser falls back to the system sans-serif. The UI stays usable either way.

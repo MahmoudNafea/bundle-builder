@@ -9,12 +9,10 @@
 }
 
 body {
-  font-family: 'Gilroy', sans-serif;
-  /* font-family: var(--font-sans); */
+  font-family: var(--font-primary);
   font-size: var(--font-size-base);
   color: var(--color-text-primary);
-  /* background: #F3F4F6; */
-  background:#FFFFFF;
+  background: var(--color-bg-white);
   -webkit-font-smoothing: antialiased;
 }
 
