@@ -1,4 +1,4 @@
-# Bundle Builder
+# React Bundle Builder
 
 ## Running it
 
@@ -8,6 +8,8 @@ npm start
 ```
 
 Requires Node 16+. No backend — everything runs locally.
+
+---
 
 ## Stack
 
@@ -45,9 +47,17 @@ src/
 
 **Variant-keyed selections.** Instead of nesting quantities under products, selections are stored as `{ [variantId]: number }`. This makes the review panel trivial — filter by qty > 0, group by step. It also means variant switching is free: you're just changing which key the stepper reads, not moving data around.
 
+**Custom hooks for separation of concerns.** Persistence logic lives in `useSaveSystem` rather than inside the context directly. The hook owns the localStorage key, handles JSON parse/stringify, and exposes three simple functions: `save`, `restore`, and `clear`. The context calls the hook and stays focused on state shape. This makes the persistence logic independently testable and easy to swap out — if the requirement changed to use a backend API instead of localStorage, only the hook changes.
+
 **CSS custom properties for the design system.** The Figma uses Gilroy and TT Norms Pro with a consistent color palette. Extracting those into tokens in one file meant I could match the design closely without scattering hex values everywhere. Media query breakpoints follow the two Figma frames — 1200px switches from the sidebar layout to the full-width layout with the review panel below.
 
 **products.json as the single source of truth.** All product data, pricing, variant options, and step structure live in one file. Nothing is hardcoded in components. The initial state seed in BundleContext references variant IDs from that file, so if the data changes, the defaults stay in sync.
+
+---
+
+## On using AI during development
+
+I used Claude as a development aid throughout this project — primarily for accelerating boilerplate, thinking through state design decisions, and debugging CSS layout issues faster than I could in isolation.
 
 ---
 
@@ -56,7 +66,7 @@ src/
 - The Figma uses Gilroy and TT Norms Pro. Both are paid fonts — I'm loading them via cdnfonts which covers most weights but may not be production-reliable. In a real project I'd either license the fonts or find free equivalents.
 - No animations on accordion open/close. The expand/collapse is instant. Adding a CSS height transition here would've been straightforward but I prioritized getting the layout and logic right.
 - The "Learn More" links go nowhere. They'd need real product URLs.
-- No error boundary around the context. If localStorage returns malformed JSON on restore, it'll throw. Worth adding a try/catch in `useSaveSystem`.
+- No error boundary around the context. If localStorage returns malformed JSON on restore, it'll throw. Worth adding a try/catch in `useSaveSystem` as a safety net.
 
 ---
 
