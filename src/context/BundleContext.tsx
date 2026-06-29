@@ -2,10 +2,10 @@ import {
   createContext,
   useContext,
   useState,
-  useEffect,
   ReactNode,
 } from 'react';
 import { Selections, ActiveVariants } from '../types';
+import { useSaveSystem } from '../hooks/useSaveSystem';
 
 interface BundleContextValue {
   selections: Selections;
@@ -20,36 +20,23 @@ interface BundleContextValue {
 
 const BundleContext = createContext<BundleContextValue | null>(null);
 
-const STORAGE_KEY = 'bundle-system';
-
-const getInitialSelections = (): Selections => {
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (saved) return JSON.parse(saved) as Selections;
-  // Default selections matching Figma
-  return {
-    'wyze-cam-v4-white': 1,
-    'wyze-cam-pan-v3-white': 2,
-    'wyze-sense-motion-sensor': 2,
-    'wyze-sense-hub': 1,
-    'wyze-microsd-card': 2,
-    'cam-unlimited': 1,
-  };
+const DEFAULT_SELECTIONS: Selections = {
+  'wyze-cam-v4-white': 1,
+  'wyze-cam-pan-v3-white': 2,
+  'wyze-sense-motion-sensor': 2,
+  'wyze-sense-hub': 1,
+  'wyze-microsd-card': 2,
+  'cam-unlimited': 1,
 };
 
 export function BundleProvider({ children }: { children: ReactNode }) {
-  // const [selections, setSelections] = useState<Selections>({});
-    const [selections, setSelections] = useState<Selections>(getInitialSelections);
+  const { save, restore } = useSaveSystem();
 
+  const [selections, setSelections] = useState<Selections>(
+    () => restore() ?? DEFAULT_SELECTIONS
+  );
   const [activeStep, setActiveStep] = useState<number>(0);
   const [activeVariants, setActiveVariants] = useState<ActiveVariants>({});
-
-  // Restore saved system on mount
-  useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      setSelections(JSON.parse(saved) as Selections);
-    }
-  }, []);
 
   const setQty = (variantId: string, qty: number) => {
     setSelections(prev => ({
@@ -61,9 +48,7 @@ export function BundleProvider({ children }: { children: ReactNode }) {
   const getQty = (variantId: string): number =>
     selections[variantId] ?? 0;
 
-  const saveSystem = () => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(selections));
-  };
+  const saveSystem = () => save(selections);
 
   return (
     <BundleContext.Provider
