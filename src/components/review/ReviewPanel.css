@@ -1,146 +1,121 @@
 .review-panel {
-  background: #EDF4FF;
-  border: 1.5px solid #E5E7EB;
-  border-radius: 12px;
-  padding: 20px;
+  background: var(--color-bg-step);
+  border: 1.5px solid var(--color-border-light);
+  border-radius: var(--radius-accordion);
+  padding: var(--space-9);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-6);
   position: sticky;
   top: 24px;
 }
 
-/* Top header */
 .review-panel__review-label {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 4px;
+  margin-bottom: var(--space-1);
 }
 
 .review-panel__title {
-  font-size: 22px;
-  font-weight: 600;
-  /* color: var(--color-text-primary); */
-  color:#1F1F1F;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
   line-height: 1.2;
-    letter-spacing: 0.6px;
-
-  margin-bottom: 4px;
+  letter-spacing: 0.6px;
+  margin-bottom: var(--space-1);
 }
 
 .review-panel__subtitle {
-  font-size: 14px;
-  color:#1F1F1FBF;
-font-weight: 500;
-font-size: 14px;
-line-height: 130%;
-letter-spacing: 0.6px;
-vertical-align: middle;
-
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-body);
+  color: #1F1F1FBF;
+  line-height: 130%;
+  letter-spacing: 0.6px;
+  vertical-align: middle;
 }
 
 .review-panel__top {
-  padding-bottom: 12px;
-  border-bottom: 1px solid #D1D5DB;
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border-medium);
 }
 
 .review-panel__empty {
   font-size: 13px;
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   text-align: center;
-  padding: 24px 0;
+  padding: var(--space-10) 0;
 }
 
-/* Body — single column on sidebar, two columns on wide */
 .review-panel__body {
   display: flex;
   flex-direction: column;
   gap: 0;
 }
 
-/* Items column */
 .review-panel__items {
   display: flex;
   flex-direction: column;
 }
 
-/* Summary column */
 .review-panel__summary {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding-top: 12px;
+  gap: var(--space-6);
+  padding-top: var(--space-6);
 }
 
-/* Group */
 .review-group {
-  margin-bottom: 4px;
+  margin-bottom: var(--space-1);
 }
 
 .review-group__label {
-  font-size: 12px;
-  font-weight: 400;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
   color: #A8B2BD;
   text-transform: uppercase;
-letter-spacing: 3%;
+  letter-spacing: 3%;
   line-height: 16px;
-/* text-align: center; */
-
-  padding: 10px 0 6px;
-  /* border-top: 1px solid #D1D5DB; */
+  padding: var(--space-4) 0 var(--space-2);
   display: block;
   width: 100%;
-
 }
 
-/* Line item */
 .review-item {
   display: grid;
   grid-template-columns: 40px 1fr auto auto;
   align-items: center;
-  gap: 8px;
-  padding: 6px 0;
-  border-bottom: 1px solid #E5E7EB;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border-light);
 }
 
 .review-item__image {
   width: 40px;
   height: 40px;
   object-fit: contain;
-  border-radius: 6px;
-  background: white;
-  border: 1px solid #E5E7EB;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border-light);
   padding: 3px;
 }
 
 .review-item__name {
-  font-size: 14px;
-  color: #0B0D10;
-  font-weight: 500;
-  /* line-height: 1.3; */
-
+  font-size: var(--font-size-body);
+  color: var(--color-text-title);
+  font-weight: var(--font-weight-medium);
   line-height: 16px;
-letter-spacing: 0.5%;
-
-/* font-family: Gilroy-Medium;
-font-weight: 400;
-font-style: ☞;
-font-size: 14px;
-leading-trim: NONE;
-line-height: 16px;
-letter-spacing: 0.5%; */
-
+  letter-spacing: 0.5%;
 }
 
 .review-item__stepper .stepper {
   display: flex;
   align-items: center;
-  border: 1px solid #D1D5DB;
-  border-radius: 6px;
-  background: white;
+  border: 1px solid var(--color-border-medium);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-white);
   height: 26px;
   overflow: hidden;
 }
@@ -152,19 +127,19 @@ letter-spacing: 0.5%; */
   display: flex;
   align-items: center;
   justify-content: center;
-  background: white;
+  background: var(--color-bg-white);
   color: #374151;
 }
 
 .review-item__stepper .stepper button:disabled {
-  color: #D1D5DB;
+  color: var(--color-border-medium);
 }
 
 .review-item__stepper .stepper span {
   min-width: 18px;
   text-align: center;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
 }
 
 .review-item__pricing {
@@ -176,37 +151,36 @@ letter-spacing: 0.5%; */
 }
 
 .review-item__compare {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
   color: #6F7882;
   text-decoration: line-through;
 }
 
 .review-item__price {
-  font-size: 14px;
-  font-weight: 600;
-  color: #4E2FD2;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-brand-primary);
 }
 
 .review-item__free {
-  font-size: 14px;
-  font-weight: 600;
-  color: #4E2FD2;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-brand-primary);
 }
 
-/* Cam Unlimited */
 .review-cam-unlimited {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 1px solid #E5E7EB;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border-light);
 }
 
 .review-cam-unlimited__left {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-3);
 }
 
 .review-cam-unlimited__icon {
@@ -216,13 +190,13 @@ letter-spacing: 0.5%; */
 }
 
 .review-cam-unlimited__name {
-  font-size: 14px;
-  font-weight: 700;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
 }
 
 .review-cam-unlimited__name span {
-  color: #4E2FD2;
+  color: var(--color-brand-primary);
 }
 
 .review-cam-unlimited__pricing {
@@ -232,30 +206,29 @@ letter-spacing: 0.5%; */
 }
 
 .review-cam-unlimited__compare {
-  font-size: 10px;
-  color: #9CA3AF;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-compare);
   text-decoration: line-through;
 }
 
 .review-cam-unlimited__price {
   font-size: 13px;
-  font-weight: 700;
-  color: #4E2FD2;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-primary);
 }
 
-/* Shipping */
 .review-shipping {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 0;
-  border-bottom: 1px solid #E5E7EB;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border-light);
 }
 
 .review-shipping__left {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-3);
   font-size: 13px;
   color: var(--color-text-primary);
 }
@@ -269,26 +242,25 @@ letter-spacing: 0.5%; */
 .review-shipping__pricing {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-2);
 }
 
 .review-shipping__compare {
-  font-size: 11px;
-  color: #9CA3AF;
+  font-size: var(--font-size-base);
+  color: var(--color-text-compare);
   text-decoration: line-through;
 }
 
 .review-shipping__free {
   font-size: 13px;
-  font-weight: 700;
-  color: #4E2FD2;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-primary);
 }
 
-/* Guarantee */
 .review-guarantee {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: var(--space-6);
 }
 
 .review-guarantee__badge {
@@ -298,122 +270,112 @@ letter-spacing: 0.5%; */
   object-fit: contain;
 }
 
+/* Hidden by default — shown only at Frame 1736 breakpoint */
 .review-guarantee__text {
-  display: flex;
+  display: none;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--space-1);
 }
 
 .review-guarantee__heading {
   font-size: 13px;
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
 }
 
 .review-guarantee__body {
-  font-size: 12px;
-  color: var(--color-text-secondary);
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
   line-height: 1.4;
 }
 
-/* Total */
 .review-total {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-}
-
-.review-total__financing-row {
- display: flex;
-  justify-content: flex-start;   /* ← left aligned */
-  margin-bottom: 4px;
-}
-
-.review-total__financing-pill {
-  background: #4E2FD2;
-  color: white;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 20px;
+  gap: var(--space-1);
 }
 
 .review-total__row {
   display: flex;
-  justify-content: space-between;  /* ← pill left, price right */
+  justify-content: space-between;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-3);
+}
+
+.review-total__financing-pill {
+  background: var(--color-brand-primary);
+  color: var(--color-text-white);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  padding: 3px var(--space-4);
+  border-radius: var(--radius-pill);
 }
 
 .review-total__prices {
   display: flex;
   align-items: baseline;
-  gap: 6px;
+  gap: var(--space-2);
 }
 
 .review-total__compare {
-  font-size: 14px;
-  color: #9CA3AF;
+  font-size: var(--font-size-body);
+  color: var(--color-text-compare);
   text-decoration: line-through;
 }
 
 .review-total__price {
   font-size: 28px;
-  font-weight: 800;
-  color: #4F46E5;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-brand-blue);
 }
 
 .review-total__savings {
-  font-size: 12px;
-  color: #0AA288;
-  font-weight: 600;
+  font-size: var(--font-size-md);
+  color: var(--color-border-active-variant);
+  font-weight: var(--font-weight-semibold);
   text-align: center;
 }
 
-/* Checkout */
 .review-checkout {
   width: 100%;
-  background: #4E2FD2;
-  color: #FFFFFF;
-  border-radius: 8px;
+  background: var(--color-brand-primary);
+  color: var(--color-text-white);
+  border-radius: var(--radius-stepper);
   padding: 14px;
   transition: background 0.15s;
-font-family: 'TT Norms Pro', sans-serif;
-font-weight: 700;
-font-size: 17px;
-line-height: 100%;
-letter-spacing: 0px;
-text-align: center;
-vertical-align: middle;
-
+  font-family: 'TT Norms Pro', sans-serif;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xl);
+  line-height: 100%;
+  letter-spacing: 0px;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .review-checkout:hover {
   background: #4338CA;
 }
 
-/* Save */
 .review-save {
   width: 100%;
-  /* font-family: 'Gilroy', sans-serif; */
-  font-weight: 400;
-  font-style: italic;          
-  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  font-style: italic;
+  font-size: var(--font-size-body);
   line-height: 120%;
   letter-spacing: -0.02px;
   text-align: center;
   text-decoration: underline;
   text-decoration-style: solid;
   text-decoration-thickness: 1px;
-  color: #484848;
+  color: var(--color-text-save-link);
   background: none;
   cursor: pointer;
 }
 
-/* ============ MEDIUM DESKTOP — Frame 1736 layout ============ */
+/* ============ MEDIUM DESKTOP — Frame 1736 ============ */
 @media (max-width: 1100px) {
   .review-panel {
-    position: static;   /* no longer sticky */
+    position: static;
   }
 
   .review-panel__body {
@@ -425,11 +387,10 @@ vertical-align: middle;
 
   .review-panel__summary {
     padding-top: 0;
-    border-left: 1px solid #D1D5DB;
-    padding-left: 24px;
+    border-left: 1px solid var(--color-border-medium);
+    padding-left: var(--space-10);
   }
 
-  /* Hide guarantee text on sidebar, show on wide */
   .review-guarantee__text {
     display: flex;
   }
@@ -442,8 +403,8 @@ vertical-align: middle;
 /* ============ MOBILE ============ */
 @media (max-width: 600px) {
   .review-panel {
-    border-radius: 8px;
-    padding: 16px;
+    border-radius: var(--radius-stepper);
+    padding: var(--space-8);
   }
 
   .review-panel__body {
@@ -453,8 +414,8 @@ vertical-align: middle;
   .review-panel__summary {
     border-left: none;
     padding-left: 0;
-    border-top: 1px solid #D1D5DB;
-    padding-top: 16px;
+    border-top: 1px solid var(--color-border-medium);
+    padding-top: var(--space-8);
   }
 
   .review-total__price {
