@@ -176,44 +176,52 @@ export function ReviewPanel({ steps }: ReviewPanelProps) {
           {/* Right — summary */}
           <div className="review-panel__summary">
 
-            {/* Guarantee badge + text */}
-            <div className="review-guarantee">
+            {/* Guarantee text — visible only at Frame 1736 breakpoint */}
+            <div className="review-guarantee__text">
+              <p className="review-guarantee__heading">30-day hassle-free returns</p>
+              <p className="review-guarantee__body">
+                If you're not totally in love with the product, we will refund you 100%.
+              </p>
+            </div>
+
+            {/* Badge + total on same row */}
+            <div className="review-guarantee-total-row">
               <img
                 src="/images/satisfaction-badge.png"
                 alt="100% satisfaction guarantee"
                 className="review-guarantee__badge"
               />
-              <div className="review-guarantee__text">
-                <p className="review-guarantee__heading">30-day hassle-free returns</p>
-                <p className="review-guarantee__body">
-                  If you're not totally in love with the product, we will refund you 100%.
-                </p>
+              <div className="review-total">
+                <div className="review-total__row">
+                  <span className="review-total__financing-pill">
+                    as low as $19.19/mo
+                  </span>
+                  <div className="review-total__prices">
+                    {savings > 0 && (
+                      <span className="review-total__compare">
+                        ${compareTotal.toFixed(2)}
+                      </span>
+                    )}
+                    <span className="review-total__price">
+                      ${total.toFixed(2)}
+                    </span>
+                  </div>
+                </div>
+                {/* {savings > 0 && (
+                  <p className="review-total__savings">
+                    Congrats! You're saving ${savings.toFixed(2)} on your security bundle!
+                  </p>
+                )} */}
               </div>
             </div>
 
-          {/* Financing + total */}
-<div className="review-total">
-  <div className="review-total__row">
-    <span className="review-total__financing-pill">
-      as low as $19.19/mo
-    </span>
-    <div className="review-total__prices">
-      {savings > 0 && (
-        <span className="review-total__compare">
-          ${compareTotal.toFixed(2)}
-        </span>
-      )}
-      <span className="review-total__price">
-        ${total.toFixed(2)}
-      </span>
-    </div>
-  </div>
-  {savings > 0 && (
-    <p className="review-total__savings">
-      Congrats! You're saving ${savings.toFixed(2)} on your security bundle!
-    </p>
-  )}
-</div>
+            <div>
+               {savings > 0 && (
+                  <p className="review-total__savings">
+                    Congrats! You're saving ${savings.toFixed(2)} on your security bundle!
+                  </p>
+                )}
+            </div>
 
             {/* Checkout */}
             <button className="review-checkout" onClick={() => alert('Order placed!')}>
@@ -224,6 +232,7 @@ export function ReviewPanel({ steps }: ReviewPanelProps) {
             <button className="review-save" onClick={saveSystem}>
               Save my system for later
             </button>
+            
 
           </div>
         </div>

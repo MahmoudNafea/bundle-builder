@@ -257,20 +257,7 @@
   color: var(--color-brand-primary);
 }
 
-.review-guarantee {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-6);
-}
-
-.review-guarantee__badge {
-  width: 64px;
-  height: 64px;
-  flex-shrink: 0;
-  object-fit: contain;
-}
-
-/* Hidden by default — shown only at Frame 1736 breakpoint */
+/* Guarantee text — hidden by default, shown at Frame 1736 */
 .review-guarantee__text {
   display: none;
   flex-direction: column;
@@ -289,17 +276,35 @@
   line-height: 1.4;
 }
 
+/* Badge + total row */
+.review-guarantee-total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.review-guarantee__badge {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
 .review-total {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   gap: var(--space-1);
+  flex: 1;
 }
 
 .review-total__row {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--space-3);
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  width: 100%;
 }
 
 .review-total__financing-pill {
@@ -334,6 +339,7 @@
   color: var(--color-border-active-variant);
   font-weight: var(--font-weight-semibold);
   text-align: center;
+  width: 100%;
 }
 
 .review-checkout {
