@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { useBundleContext } from '../../context/BundleContext';
 import { Step } from '../../types';
 import { QuantityStepper } from '../builder/QuantityStepper';
 import './ReviewPanel.css';
+import { Toast, ToastType } from '../shared/Toast';
 
 interface ReviewPanelProps {
   steps: Step[];
@@ -16,6 +18,8 @@ const categoryLabels: Record<string, string> = {
 
 export function ReviewPanel({ steps }: ReviewPanelProps) {
   const { selections, setQty, saveSystem } = useBundleContext();
+    const [toast, setToast] = useState<{ message: string; type: ToastType } | null>(null);
+
 
   const lineItems = steps.flatMap(step =>
     step.products.flatMap(product => {
@@ -51,6 +55,15 @@ export function ReviewPanel({ steps }: ReviewPanelProps) {
       }
     })
   );
+
+    const handleSave = () => {
+    const success = saveSystem();
+    if (success) {
+      setToast({ message: 'Your system has been saved', type: 'success' });
+    } else {
+      setToast({ message: 'Something went wrong. Please try again.', type: 'error' });
+    }
+  };
 
   const grouped = steps
     .filter(step => step.id !== 'plan')
@@ -207,11 +220,6 @@ export function ReviewPanel({ steps }: ReviewPanelProps) {
                     </span>
                   </div>
                 </div>
-                {/* {savings > 0 && (
-                  <p className="review-total__savings">
-                    Congrats! You're saving ${savings.toFixed(2)} on your security bundle!
-                  </p>
-                )} */}
               </div>
             </div>
 
@@ -229,9 +237,17 @@ export function ReviewPanel({ steps }: ReviewPanelProps) {
             </button>
 
             {/* Save */}
-            <button className="review-save" onClick={saveSystem}>
+            <button className="review-save" onClick={handleSave}>
               Save my system for later
             </button>
+
+             {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast(null)}
+        />
+      )}
             
 
           </div>

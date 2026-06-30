@@ -15,7 +15,7 @@ interface BundleContextValue {
   setQty: (variantId: string, qty: number) => void;
   getQty: (variantId: string) => number;
   setActiveVariants: React.Dispatch<React.SetStateAction<ActiveVariants>>;
-  saveSystem: () => void;
+  saveSystem: () => boolean;
 }
 
 const BundleContext = createContext<BundleContextValue | null>(null);
@@ -48,8 +48,14 @@ export function BundleProvider({ children }: { children: ReactNode }) {
   const getQty = (variantId: string): number =>
     selections[variantId] ?? 0;
 
-  const saveSystem = () => save(selections);
-
+const saveSystem = (): boolean => {
+  try {
+    save(selections);
+    return true;
+  } catch {
+    return false;
+  }
+};
   return (
     <BundleContext.Provider
       value={{
