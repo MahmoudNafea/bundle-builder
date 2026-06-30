@@ -27,6 +27,7 @@ src/
   components/
     builder/        # AccordionStep, ProductCard, VariantSelector, QuantityStepper
     review/         # ReviewPanel, ReviewLineItem, PriceSummary
+    shared/         # Toast Reusable Component
   context/
     BundleContext.tsx
   hooks/
