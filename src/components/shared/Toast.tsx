@@ -18,9 +18,6 @@ export function Toast({ message, type, onClose, duration = 3000 }: ToastProps) {
 
   return (
     <div className={`toast toast--${type}`} role="status" aria-live="polite">
-      <span className="toast__icon">
-        {type === 'success' ? '✓' : '✕'}
-      </span>
       <span className="toast__message">{message}</span>
     </div>
   );
